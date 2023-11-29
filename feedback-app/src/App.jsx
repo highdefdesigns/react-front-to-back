@@ -1,33 +1,13 @@
+import Header from './components/header';
+
 function App() {
-  const title = 'Blog Post';
-  const body = 'this is my blog post';
-  const comments = [
-    { id: 1, text: 'comment 1' },
-    { id: 2, text: 'comment 2' },
-    { id: 3, text: 'comment 3' },
-  ];
-
-  const loading = false;
-  const showComments = true;
-
-  if (loading) return <h1>Loading...</h1>;
-
-  const commentBlock = (
-    <div className="comments">
-      <h3>Comments ({comments.length})</h3>
-      <ul>
-        {comments.map((comment, index) => (
-          <li key={index}>{comment.text}</li>
-        ))}
-      </ul>
-    </div>
-  );
-
   return (
-    <div className="container">
-      <h1>{title.toUpperCase()}</h1>;<p>{body}</p>
-      {showComments && commentBlock}
-    </div>
+    <>
+      <Header />
+      <div className="container">
+        <h1>My App</h1>
+      </div>
+    </>
   );
 }
 
