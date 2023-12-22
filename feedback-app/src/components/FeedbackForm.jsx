@@ -5,7 +5,21 @@ import Button from './shared/Button';
 function FeedbackForm() {
   // call it whatever you want "text" ,function or method used is called setText and were destructuring it from useState
   const [text, setText] = useState('');
+  const [btnDisabled, setBtnDisabled] = useState(true);
+  const [message, setMessage] = useState('');
+
   const handleTextChange = (e) => {
+    if (text === '') {
+      setBtnDisabled(true);
+      setMessage(null);
+    } else if (text !== '' && text.trim().length <= 10) {
+      setMessage('Text must be atleast 10 characters');
+      setBtnDisabled(true);
+    } else {
+      setMessage(null);
+      setBtnDisabled(false);
+    }
+
     setText(e.target.value);
   };
 
@@ -21,10 +35,11 @@ function FeedbackForm() {
             placeholder="write review"
             value={text}
           />
-          <Button type="submit" version="primary">
+          <Button type="submit" version="primary" isDisabled={btnDisabled}>
             Send
           </Button>
         </div>
+        {message && <div className="message">{message}</div>}
       </form>
     </Card>
   );
