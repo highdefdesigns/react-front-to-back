@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Card from './shared/Card';
+import Button from './shared/Button';
 
 function FeedbackForm() {
   // call it whatever you want "text" ,function or method used is called setText and were destructuring it from useState
@@ -20,7 +21,9 @@ function FeedbackForm() {
             placeholder="write review"
             value={text}
           />
-          <button type="submit">Send</button>
+          <Button type="submit" version="primary">
+            Send
+          </Button>
         </div>
       </form>
     </Card>
